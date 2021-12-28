@@ -64,8 +64,6 @@ add_executable(simple_ocl ${SIMPLE_OPENCL_SRC_LIST})
 if (NOT MSVC)
 	# For Non-Windows builds, let cmake try and find the system OpenCL headers/libs for us.
 	if (OPENCL_FOUND)
-		set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -DBASISU_SUPPORT_OPENCL=1")
-		set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -DBASISU_SUPPORT_OPENCL=1")	
 		
 		target_include_directories( simple_ocl PRIVATE ${OpenCL_INCLUDE_DIRS} )
 		set(SIMPLE_OPENCL_EXTRA_LIBS ${OpenCL_LIBRARIES})
@@ -73,8 +71,6 @@ if (NOT MSVC)
 
 else()
 	# For Windows builds, we use our local copies of the OpenCL import lib and Khronos headers.
-	set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -DBASISU_SUPPORT_OPENCL=1")
-	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -DBASISU_SUPPORT_OPENCL=1")	
 	
 	target_include_directories( simple_ocl PRIVATE "OpenCL" )
 
