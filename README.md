@@ -24,6 +24,35 @@ Under OSX (High Sierra), it just works for me. CMake handles finding the libs/he
 
 The "bin" directory contains the sample executable, "simple_ocl". Running it will generate a buffer of random values. The GPU kernel will modify this buffer, and the CPU will read it back and validate its contents.
 
+You should see something like this (note the random numbers will likely be different for you):
+
+```
+OpenCL platform version: "OpenCL 3.0 CUDA 11.4.94"
+Serializing OpenCL calls across threads: 0
+OpenCL device initialized successfully
+Using kernel source code from array in header src/ocl_kernels.h
+OpenCL context initialized successfully
+Running "process_buffer" kernel
+Validation succeeded
+Input/output buffer contents (first 16 bytes):
+41 41
+35 34
+190 188
+132 135
+225 229
+108 105
+214 208
+174 169
+82 90
+144 153
+73 67
+241 250
+241 253
+187 182
+233 231
+235 228
+```
+
 ### Modifying the kernel source code
 
 By default, this sample compiles the OpenCL program from an array of text in [src/ocl_kernels.h](src/ocl_kernels.h). This header file was created using the "xxd" tool with the -i option from the kernel source code file located under [bin/ocl_kernels.cl](bin/ocl_kernels.cl). If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in [src/ocl_device.cpp](https://github.com/richgel999/simple_opencl/blob/main/src/ocl_device.cpp).
