@@ -7,6 +7,8 @@
 #include <mutex>
 #include <assert.h>
 #include <stdarg.h>
+#include <string.h>
+#include <limits.h>
 
 // We only use OpenCL v1.2 or less.
 #define CL_TARGET_OPENCL_VERSION 120
@@ -312,7 +314,7 @@ public:
 		if (ret != CL_SUCCESS)
 		{
 			ocl_error_printf("ocl::alloc_and_init_read_buffer: clEnqueueWriteBuffer() failed!\n");
-			return false;
+			return nullptr;
 		}
 
 		return obj;
