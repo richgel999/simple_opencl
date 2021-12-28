@@ -12,7 +12,7 @@ Windows has strong support for OpenCL v1.2 on NVidia, AMD, and Intel drivers. In
 
 ### Building
 
-Use "cmake .". 
+Use "cmake .". Then under OSX/Linux, use "make".
 
 Under Windows load the generated .SLN with Visual Studio 2019/2022. All included headers/import libs are in the project, so no 3rd party SDK's are required. Be sure to right click on "simple_ocl" and select "Set as Startup Project" before running.
 
