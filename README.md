@@ -26,4 +26,4 @@ The "bin" directory contains the sample executable, "simple_ocl". Running it wil
 
 ### Modifying the kernel source code
 
-By default, this sample compiles the OpenCL program from an array of text in src/ocl_kernels.h. This header file was created using the "xxd" tool with the -i option from the kernel source code file located under bin/ocl_kernels.cl. If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in src/ocl_device.cpp.
+By default, this sample compiles the OpenCL program from an array of text in [src/ocl_kernels.h](src/ocl_kernels.h). This header file was created using the "xxd" tool with the -i option from the kernel source code file located under bin/ocl_kernels.cl. If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in src/ocl_device.cpp.
