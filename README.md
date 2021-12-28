@@ -3,7 +3,7 @@ This is a simple and *practical* C++ sample showing how to use OpenCL v1.2 on Wi
 
 Unlike every other OpenCL example I've seen, this example demonstrates a bunch of things you would need to do in practice to ship an app using OpenCL:
 
-- Importantly, no 3rd party SDK dependencies are required to compile/link under Windows. All headers and the import libs are in the "OpenCL" directory.
+- Importantly, *no 3rd party SDK dependencies are required to compile/link under Windows*. All required OpenCL headers and the 2 import .LIB's are in the "OpenCL" directory.
 - How to safely use OpenCL from multiple threads (by using a local context, and creating your command queue/kernels on that context).
 - How to work around AMD driver serialization issues if you use OpenCL from multiple threads
 - How to load your program source from either a file, or from an array in a C-style header
