@@ -6,9 +6,9 @@ Unlike every other OpenCL example I've seen, this example demonstrates a bunch o
 - Importantly, *no 3rd party SDK dependencies are required to compile/link under Windows*. All required OpenCL headers and the 2 import .LIB's are in the "OpenCL" directory.
 - How to safely use OpenCL from multiple threads (by using a local context, and creating your command queue/kernels on that context).
 - How to work around AMD driver serialization issues if you use OpenCL from multiple threads
-- How to load your program source from either a file, or from an array in a C-style header
+- How to load your program kernel source code from either a file, or from an array in a C-style header
 
-Windows has strong support for OpenCL v1.2 on NVidia, AMD, and Intel drivers. In my testing, even brand new Windows AMD machines right out of the box with no updates have working OpenCL drivers.
+Windows has strong support for OpenCL v1.2 on NVidia, AMD, and Intel drivers. In my testing, even brand new Windows AMD machines right out of the box with no updates have working OpenCL drivers. Some of OpenCL v1.2's strengths are its maturity, driver support, ease of use, and no large 3rd party SDK's or libraries are required to use it. Here's a good [introductory book](https://www.amazon.com/gp/product/B097827WWG/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) on OpenCL.
 
 ### Building
 
