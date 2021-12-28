@@ -16,10 +16,10 @@ Use "cmake .".
 
 Under Windows load the generated .SLN with Visual Studio 2019/2022. All included headers/import libs are in the project, so no 3rd party SDK's are required.
 
-Under Linux, you will need a driver with OpenCL support, and the OpenCL headers/libraries. The easiest thing to do is to use the NVidia proprietary driver, then use "sudo apt-get install nvidia-cuda-toolkit". [This](https://linuxhandbook.com/setup-opencl-linux-docker/) page may help. CMake will automatically find the OpenCL headers/libraries.
+Under Linux, you will need a driver with OpenCL support, and the OpenCL headers/libraries. The easiest thing to do is to use the NVidia proprietary driver, then use "sudo apt-get install nvidia-cuda-toolkit". [This](https://linuxhandbook.com/setup-opencl-linux-docker/) page may help. Install and run the "clinfo" app to validate that your driver supports OpenCL. CMake will automatically find the OpenCL headers/libraries.
 
 Under OSX (High Sierra), it just works for me. CMake handles finding the libs/headers.
 
 ### Running
 
-The "bin" directory will contain the executable. Running it will generate a buffer of random values. The GPU kernel will modify this buffer, and the CPU will read it back and validate its contents.
+The "bin" directory contains the sample executable, "simple_ocl". Running it will generate a buffer of random values. The GPU kernel will modify this buffer, and the CPU will read it back and validate its contents.
