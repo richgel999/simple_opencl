@@ -23,3 +23,7 @@ Under OSX (High Sierra), it just works for me. CMake handles finding the libs/he
 ### Running
 
 The "bin" directory contains the sample executable, "simple_ocl". Running it will generate a buffer of random values. The GPU kernel will modify this buffer, and the CPU will read it back and validate its contents.
+
+### Modifying the kernel source code
+
+By default, this sample compiles the OpenCL program from an array of text in src/ocl_kernels.h. This header file was created using the "xxd" tool with the -i option from the kernel source code file located under bin/ocl_kernels.cl. If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in src/ocl_device.cpp.
