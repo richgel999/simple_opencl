@@ -1,12 +1,14 @@
 # simple_opencl
 This is a simple and *practical* C++ sample showing how to use OpenCL v1.2 on Windows/Linux/OSX with no 3rd party SDK installs required under Windows/OSX.
 
-Unlike every other OpenCL example I've seen, this example shows a bunch of things you would need to do in practic to ship an app using OpenCL:
+Unlike every other OpenCL example I've seen, this example demonstrates a bunch of things you would need to do in practice to ship an app using OpenCL:
 
 - Importantly, no 3rd party SDK dependencies are required to compile/link under Windows. All headers and the import libs are in the "OpenCL" directory.
 - How to safely use OpenCL from multiple threads (by using a local context, and creating your command queue/kernels on that context).
 - How to work around AMD driver serialization issues if you use OpenCL from multiple threads
 - How to load your program source from either a file, or from an array in a C-style header
+
+Windows has strong support for OpenCL v1.2 on NVidia, AMD, and Intel drivers. In my testing, even brand new Windows AMD machines right out of the box with no updates have working OpenCL drivers.
 
 ### Building
 
