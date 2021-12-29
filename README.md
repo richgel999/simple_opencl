@@ -57,3 +57,12 @@ Input/output buffer contents (first 16 bytes):
 
 By default, this sample compiles the OpenCL program from an array of text in [src/ocl_kernels.h](src/ocl_kernels.h). This header file was created using the "xxd" tool with the -i option from the kernel source code file located under [bin/ocl_kernels.cl](bin/ocl_kernels.cl). If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in [src/ocl_device.cpp](https://github.com/richgel999/simple_opencl/blob/main/src/ocl_device.cpp).
 
+### Design
+
+This sample was derived from how we're using OpenCL in Basis Universal, our GPU texture interchange library/tool.
+
+[simple_ocl_wrapper.h](src/simple_ocl_wrapper.h) contains a basic C++ wrapper on top of the C OpenCL API. OpenCL includes its own wrapper, but by writing your own you can control exactly how OpenCL is called, which features are exposed, and what C++ features are utilized by the wrapper.
+
+[ocl_device.cpp/h](src/ocl_device.h) uses this wrapper to create the OpenCL device. It exposes a simple C-style API that callers can use to initialize/deinitalize the device, and create/destroy per-thread contexts and kernels. Out of the box it supports a single kernel source code file (which can contain multiple kernels) which can be either loaded from disk or from a C-style array in a header file.
+
+[simple_ocp.cpp] utilizes the C-style API exposed by ocl_device.h. It creates a byte buffer of random numbers, then calls `opencl_process_buffer()` in ocl_device.cpp.
