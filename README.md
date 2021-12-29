@@ -57,7 +57,7 @@ Input/output buffer contents (first 16 bytes):
 
 ### Design
 
-This sample was derived from how we're using OpenCL in [Basis Universal](https://github.com/BinomialLLC/basis_universal), our GPU texture interchange library/tool.
+This sample was derived from how we're using OpenCL in [Basis Universal](https://github.com/BinomialLLC/basis_universal), our GPU texture interchange library/tool. OpenCL support is optional, so we placed all the OpenCL code in one .cpp file and exposed a simple C-style API to its functionality. When OpenCL is not being compiled in we use dummy functions for this API which always return false. We have one large kernel source file which exposes multiple kernels. We pass in C-style structs, OpenCL buffers, and floats/ints/etc. to/from our kernels.
 
 [simple_ocl_wrapper.h](src/simple_ocl_wrapper.h) contains a basic C++ wrapper on top of the C OpenCL API. OpenCL does have its own [standard C++ wrapper](https://www.khronos.org/registry/OpenCL/specs/opencl-cplusplus-1.2.pdf), but by writing your own you can control exactly how OpenCL is called, which features are exposed, and what C++ features are utilized by the wrapper. (Also, the entire point of this sample is how to directly use OpenCL with as few bloated libs/wrappers/SDK's/frameworks/etc. in between you and the API as possible.)
 
