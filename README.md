@@ -61,7 +61,7 @@ By default, this sample compiles the OpenCL program from an array of text in [sr
 
 This sample was derived from how we're using OpenCL in Basis Universal, our GPU texture interchange library/tool.
 
-[simple_ocl_wrapper.h](src/simple_ocl_wrapper.h) contains a basic C++ wrapper on top of the C OpenCL API. OpenCL includes its own wrapper, but by writing your own you can control exactly how OpenCL is called, which features are exposed, and what C++ features are utilized by the wrapper.
+[simple_ocl_wrapper.h](src/simple_ocl_wrapper.h) contains a basic C++ wrapper on top of the C OpenCL API. OpenCL does have its own [standard C++ wrapper](https://www.khronos.org/registry/OpenCL/specs/opencl-cplusplus-1.2.pdf), but by writing your own you can control exactly how OpenCL is called, which features are exposed, and what C++ features are utilized by the wrapper.
 
 [ocl_device.cpp/h](src/ocl_device.h) uses this wrapper to create the OpenCL device. It exposes a simple C-style API that callers can use to initialize/deinitalize the device, and create/destroy per-thread contexts and kernels. Out of the box it supports a single kernel source code file (which can contain multiple kernels) which can be either loaded from disk or from a C-style array in a header file.
 
