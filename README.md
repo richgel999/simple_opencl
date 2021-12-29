@@ -53,10 +53,6 @@ Input/output buffer contents (first 16 bytes):
 235 228
 ```
 
-### Modifying the kernel source code
-
-By default, this sample compiles the OpenCL program from an array of text in [src/ocl_kernels.h](src/ocl_kernels.h). This header file was created using the "xxd" tool with the -i option from the kernel source code file located under [bin/ocl_kernels.cl](bin/ocl_kernels.cl). If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in [src/ocl_device.cpp](https://github.com/richgel999/simple_opencl/blob/main/src/ocl_device.cpp).
-
 ### Design
 
 This sample was derived from how we're using OpenCL in Basis Universal, our GPU texture interchange library/tool.
@@ -66,3 +62,7 @@ This sample was derived from how we're using OpenCL in Basis Universal, our GPU 
 [ocl_device.cpp/h](src/ocl_device.h) uses this wrapper to create the OpenCL device. It exposes a simple C-style API that callers can use to initialize/deinitalize the device, and create/destroy per-thread contexts and kernels. Out of the box it supports a single kernel source code file (which can contain multiple kernels) which can be either loaded from disk or from a C-style array in a header file. On (only) AMD drivers, this code automatically serializes all calls made into the driver, to avoid race conditions in AMD's driver when OpenCL is called from multiple threads.
 
 [simple_ocl.cpp](src/simple_ocl.cpp) utilizes the C-style API exposed by ocl_device.h. It creates a byte buffer of random numbers, then calls `opencl_process_buffer()` in ocl_device.cpp to process this buffer to an output buffer.
+
+### Modifying the kernel source code
+
+By default, this sample compiles the OpenCL program from an array of text in [src/ocl_kernels.h](src/ocl_kernels.h). This header file was created using the "xxd" tool with the -i option from the kernel source code file located under [bin/ocl_kernels.cl](bin/ocl_kernels.cl). If you want the sample to always load the kernel source code from the "bin" directory instead, set `OCL_USE_KERNELS_HEADER` to 0 in [src/ocl_device.cpp](https://github.com/richgel999/simple_opencl/blob/main/src/ocl_device.cpp).
