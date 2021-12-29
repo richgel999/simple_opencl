@@ -57,7 +57,7 @@ Input/output buffer contents (first 16 bytes):
 
 This sample was derived from how we're using OpenCL in [Basis Universal](https://github.com/BinomialLLC/basis_universal), our GPU texture interchange library/tool.
 
-[simple_ocl_wrapper.h](src/simple_ocl_wrapper.h) contains a basic C++ wrapper on top of the C OpenCL API. OpenCL does have its own [standard C++ wrapper](https://www.khronos.org/registry/OpenCL/specs/opencl-cplusplus-1.2.pdf), but by writing your own you can control exactly how OpenCL is called, which features are exposed, and what C++ features are utilized by the wrapper.
+[simple_ocl_wrapper.h](src/simple_ocl_wrapper.h) contains a basic C++ wrapper on top of the C OpenCL API. OpenCL does have its own [standard C++ wrapper](https://www.khronos.org/registry/OpenCL/specs/opencl-cplusplus-1.2.pdf), but by writing your own you can control exactly how OpenCL is called, which features are exposed, and what C++ features are utilized by the wrapper. (Also, the entire point of this sample is how to directly use OpenCL with as few bloated libs/wrappers/SDK's/frameworks/etc. in between you and the API as possible.)
 
 [ocl_device.cpp/h](src/ocl_device.h) uses this wrapper to create the OpenCL device. It exposes a simple C-style API that callers can use to initialize/deinitalize the device, and create/destroy per-thread contexts and kernels. Out of the box it supports a single kernel source code file (which can contain multiple kernels) which can be either loaded from disk or from a C-style array in a header file. On (only) AMD drivers, this code automatically serializes all calls made into the driver, to avoid race conditions in AMD's driver when OpenCL is called from multiple threads.
 
