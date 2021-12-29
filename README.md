@@ -65,4 +65,4 @@ This sample was derived from how we're using OpenCL in Basis Universal, our GPU 
 
 [ocl_device.cpp/h](src/ocl_device.h) uses this wrapper to create the OpenCL device. It exposes a simple C-style API that callers can use to initialize/deinitalize the device, and create/destroy per-thread contexts and kernels. Out of the box it supports a single kernel source code file (which can contain multiple kernels) which can be either loaded from disk or from a C-style array in a header file.
 
-[simple_ocl.cpp](src/simple_ocl.cpp) utilizes the C-style API exposed by ocl_device.h. It creates a byte buffer of random numbers, then calls `opencl_process_buffer()` in ocl_device.cpp.
+[simple_ocl.cpp](src/simple_ocl.cpp) utilizes the C-style API exposed by ocl_device.h. It creates a byte buffer of random numbers, then calls `opencl_process_buffer()` in ocl_device.cpp to process this buffer to an output buffer.
